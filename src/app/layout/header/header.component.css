@@ -1,0 +1,31 @@
+ /*start header*/
+ header .container{
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+    justify-content: center;
+    position: relative;
+    padding: 15px;
+  }
+  header .logo{
+    font-size: 40px;
+    color: aqua;
+    text-decoration: none;
+  }
+  header nav{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+  }
+  header nav ul{
+    display: flex;
+    list-style: none;
+  }
+  header nav ul li a{
+    padding-left: 20px;
+    display: block;
+    text-decoration: none;
+    transition: 0.3s;
+    color: white;
+  }

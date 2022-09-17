@@ -1,0 +1,76 @@
+
+
+<div class="container" *ngIf="cartList.length !=0">
+    <div>
+    <div class="content">
+      <table>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+        <tr  *ngFor="let product of cartList ; let i = index">
+          <td>
+            <img src = {{product.item.url}}>
+          </td>
+          <td>{{product.item.name}}</td>
+          <td>
+            <input type="number" min="1" (ngModelChange)="inputChange()" [(ngModel)]="product.quantity" >
+          </td>
+          <td>{{product.item.price}} $</td>
+          <td>
+            <button class="registerbtn" (click)="deleteProductCart(product.id,i)" >Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <h3>Total : {{totalPrice}} $ </h3>
+  </div>
+  
+    <form #userform="ngForm">
+      
+      <div class="con">
+        <h1 >Order Now</h1>
+        <p>Please fill in this form to do order</p>
+        <hr>
+    
+        <label for="fullname"><b>Full Name</b></label>
+          <!--for message errors-->
+          <div  *ngIf="fullName.invalid && fullName.touched">
+            <small *ngIf="fullName.errors?.['required']">*required</small>
+            <small *ngIf="fullName.errors?.['minlength']">*minlength must be {{fullName.errors?.['minlength'].requiredLength}} and more ----you have actual length {{fullName.errors?.['minlength'].actualLength}} </small>
+          </div>
+        <input type="text" class="controlStyle" placeholder="(minimum 3 characters)" minlength="3" id="fullname" name="fullname" ngModel #fullName="ngModel" (change)="detectChanges($event)" required>
+  
+        <label for="address"><b>Address</b></label>
+          <!--for message errors-->
+      <div  *ngIf="address.invalid && address.touched">
+        <small *ngIf="address.errors?.['required']">*required</small>
+        <small *ngIf="address.errors?.['minlength']">*minlength must be {{address.errors?.['minlength'].requiredLength}} and more ----you have actual length {{address.errors?.['minlength'].actualLength}} </small>
+      </div>
+        <input type="text" class="controlStyle" placeholder="(minimum 6 characters)" minlength="6" id="address" name="address" ngModel #address="ngModel" required>
+    
+        <label for="credit"><b>Credit Card Number</b></label>
+        <!--for message errors-->
+        <div *ngIf="creditNumber.invalid && creditNumber.touched">
+          <small *ngIf="creditNumber.errors?.['required']">*required</small>
+          <small *ngIf="creditNumber.errors?.['pattern']" >must be 16 digit number</small>
+        </div>
+        <input type="number" pattern="\d{16}" class="controlStyle" placeholder="(16-digit number)"  id="credit" name="credit" ngModel #creditNumber="ngModel" required>
+        <hr>
+        <p>We will never share your payment details with anyone else</p>
+    
+        <button type="submit" class="registerbtn" (click)="submit()" [disabled]="userform.invalid" >Submit</button>
+      </div>
+    </form>
+  </div>
+  
+  <!--div not found-->
+  
+  <div class="notFound" *ngIf="cartList.length == 0">
+    <h1>No Products in your cart</h1>
+    <button routerLink="/" >Add Products</button>
+  </div>
+  

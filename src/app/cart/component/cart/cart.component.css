@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 98%;
+    margin: 20px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  }
+  
+  /*start table*/
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      padding: 15px;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    table input{
+      width: 80px;
+    }
+  
+    img{
+      width: 100px;
+    }
+  
+    /*end table*/
+    
+    
+  
+  /*start form*/
+  form{
+    margin-left: 30px;
+    width: 500px;
+  }
+    .con {
+      padding: 16px;
+    }
+    h1{
+      text-align: center;
+    }
+    
+    /* Full-width input fields */
+    input[type=text], input[type=number] {
+      padding: 15px;
+      width: 100%;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+    
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid #f1f1f1;
+    }
+    
+    /* Set a style for the submit button */
+    .registerbtn {
+      background-color: black;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+    }
+    .controlStyle.ng-invalid.ng-touched{
+      border: 2px solid red;
+  }
+  small{
+    color: red;
+  }
+  /*end form*/
+  
+  
+  /*style div Not found*/
+  .notFound{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    color: gray;
+  }
+  
+  .notFound button{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    font-size: 18px;
+    width: 100%;
+  
+  }
